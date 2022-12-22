@@ -1,21 +1,25 @@
 import ReactDOM from 'react-dom/client';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 import { HashRouter, Routes, Route, Link} from 'react-router-dom';
-import { fetchPost } from '../api/fetch';
+import { fetchPost } from '../api/fetchposts';
 import { ViewPost } from '../components/ViewPost';
 
 
 
 const App = ()=> {
   const [posts, setPosts] = useState([]);
+  const [username, setUsername] = useState([]);
+  const [password, setPassword] = useState([]);
+
     // variable 'posts' has API posts from fetch.js
+    
   useEffect(()=> {
   fetchPost(setPosts);
-
+  // fetchLogin(setLogin);
   }, []);
 
   console.log(posts); // shows posts in console
-  
+  // console.log(login);
   return (
     <div>
       <h1>Strangers Things</h1>
@@ -26,7 +30,7 @@ const App = ()=> {
       </nav>
       <Routes>
         <Route path='/posts' element= {<ViewPost posts = {posts}/>}/>
-        <Route path='/login' element={ <div>Login</div>} /> 
+        {/* <Route path='/login' element={ <div>Login</div>} />  */}
         <Route path='/register' element={ <div>Register</div>} /> 
       </Routes> 
     </div>
