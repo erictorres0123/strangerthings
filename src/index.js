@@ -2,17 +2,16 @@ import ReactDOM from 'react-dom/client';
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Link} from 'react-router-dom';
 import { fetchPost } from '../api/fetch';
-
+import { ViewPost } from '../components/ViewPost';
 
 
 
 const App = ()=> {
   const [posts, setPosts] = useState([]);
     // variable 'posts' has API posts from fetch.js
-
-
   useEffect(()=> {
   fetchPost(setPosts);
+
   }, []);
 
   console.log(posts); // shows posts in console
@@ -26,7 +25,7 @@ const App = ()=> {
         <Link to='/register'>Register</Link>
       </nav>
       <Routes>
-        <Route path='/posts' element= { <div>Posts</div>}/>
+        <Route path='/posts' element= {<ViewPost posts = {posts}/>}/>
         <Route path='/login' element={ <div>Login</div>} /> 
         <Route path='/register' element={ <div>Register</div>} /> 
       </Routes> 
