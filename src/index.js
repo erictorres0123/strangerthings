@@ -8,6 +8,7 @@ import { ViewPost } from '../components/ViewPost';
 
 const App = ()=> {
   const [posts, setPosts] = useState([]);
+  const [login, setLogin] = useState([]);
   const [username, setUsername] = useState([]);
   const [password, setPassword] = useState([]);
 
@@ -15,11 +16,11 @@ const App = ()=> {
     
   useEffect(()=> {
   fetchPost(setPosts);
-  // fetchLogin(setLogin);
+  fetchLogin(setLogin);
   }, []);
 
   console.log(posts); // shows posts in console
-  // console.log(login);
+  console.log(login);
   return (
     <div>
       <h1>Strangers Things</h1>
@@ -30,7 +31,7 @@ const App = ()=> {
       </nav>
       <Routes>
         <Route path='/posts' element= {<ViewPost posts = {posts}/>}/>
-        {/* <Route path='/login' element={ <div>Login</div>} />  */}
+        <Route path='/login' element={ <ViewLogib login = {login}/>}/> 
         <Route path='/register' element={ <div>Register</div>} /> 
       </Routes> 
     </div>
