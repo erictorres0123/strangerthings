@@ -26,12 +26,12 @@ const App = ()=> {
       <h1>Strangers Things</h1>
       <nav> 
         <Link to='/posts'>Posts ({posts.length})</Link>
-        <Link to='/login'>Login</Link>
+        <Link to='/login'>Login ({login.length})</Link>
         <Link to='/register'>Register</Link>
       </nav>
       <Routes>
         <Route path='/posts' element= {<ViewPost posts = {posts}/>}/>
-        <Route path='/login' element={ <ViewLogib login = {login}/>}/> 
+        <Route path='/login' element={ <ViewLogin login = {login}/>}/> 
         <Route path='/register' element={ <div>Register</div>} /> 
       </Routes> 
     </div>
