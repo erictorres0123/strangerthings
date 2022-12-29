@@ -11,7 +11,7 @@ export const ViewPost = (props) => {
       {posts.map((post)=> {
           return (
               <div
-              key={post.id}
+              key={post._id}
               className={post.isAuthor ? 'singlePost myPost' : 'singlePost'}>
                   <h3>{post.title}</h3>
                   <p>{post.description}</p>

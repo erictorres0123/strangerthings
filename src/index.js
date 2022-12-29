@@ -3,23 +3,26 @@ import React, { useEffect, useState } from "react";
 import { HashRouter, Routes, Route, Link} from 'react-router-dom';
 import { fetchPost } from '../api/fetchposts';
 import { ViewPost } from '../components/ViewPost';
-
+import { fetchLogin } from '../api/fetchlogin';
 
 
 const App = ()=> {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);  // variable 'posts' has API posts from fetch.js
   const [username, setUsername] = useState([]);
   const [password, setPassword] = useState([]);
-
-    // variable 'posts' has API posts from fetch.js
+  const [token, setToken] = useState([]);
+    
     
   useEffect(()=> {
   fetchPost(setPosts);
-  // fetchLogin(setLogin);
   }, []);
+  useEffect(() => {
+  fetchLogin(setLogin);
+  }, [])
+
 
   console.log(posts); // shows posts in console
-  // console.log(login);
+  console.log(login);
   return (
     <div>
       <h1>Strangers Things</h1>
