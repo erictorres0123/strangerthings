@@ -14,7 +14,6 @@ const App = ()=> {
     
   useEffect(()=> {
   fetchPost(setPosts);
-  fetchLogin(setLogin);
   }, []);
 
 

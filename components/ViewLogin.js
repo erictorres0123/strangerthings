@@ -11,8 +11,6 @@ const [password, setPassword] = useState('');
 return (
 <div>
 <h1>Login</h1>
-{login.map((login) => {
-return (
 <div key = {login._id}> 
     <form onSubmit={async(ev) => { 
         try {
@@ -22,6 +20,7 @@ return (
             const redirectposts = () => {
                 window.location.href = '/posts';
             }
+            redirectposts();
         } catch (error) {
             console.error(error);
         }
@@ -33,7 +32,5 @@ return (
 
     </form>
  </div>
- );
- })}
 </div>
 )};
