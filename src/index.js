@@ -7,7 +7,12 @@ import { fetchLogin } from '../api/fetchlogin';
 
 
 const App = ()=> {
+<<<<<<< HEAD
   const [posts, setPosts] = useState([]);  // variable 'posts' has API posts from fetch.js
+=======
+  const [posts, setPosts] = useState([]);
+  const [login, setLogin] = useState([]);
+>>>>>>> 7d4369c821389f7d113003de10391a22295c1f92
   const [username, setUsername] = useState([]);
   const [password, setPassword] = useState([]);
   const [token, setToken] = useState([]);
@@ -15,6 +20,10 @@ const App = ()=> {
     
   useEffect(()=> {
   fetchPost(setPosts);
+<<<<<<< HEAD
+=======
+  fetchLogin(setLogin);
+>>>>>>> 7d4369c821389f7d113003de10391a22295c1f92
   }, []);
   useEffect(() => {
   fetchLogin(setLogin);
@@ -33,7 +42,7 @@ const App = ()=> {
       </nav>
       <Routes>
         <Route path='/posts' element= {<ViewPost posts = {posts}/>}/>
-        {/* <Route path='/login' element={ <div>Login</div>} />  */}
+        <Route path='/login' element={ <ViewLogib login = {login}/>}/> 
         <Route path='/register' element={ <div>Register</div>} /> 
       </Routes> 
     </div>
