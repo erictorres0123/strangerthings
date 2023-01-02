@@ -1,3 +1,5 @@
+//fetch all posts
+
 const cohort = '2209-ftb-et-web-am';
 
 //fetch post
@@ -10,3 +12,6 @@ export const fetchPost = async (setPosts) => { fetch(`https://strangers-things.h
   .catch(console.error);
  
 };
+
+
+//fetch user post w token

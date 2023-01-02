@@ -5,13 +5,14 @@ import { fetchPost } from '../api/fetchPosts';
 import { ViewPost } from '../components/ViewPost';
 import { ViewLogin } from '../components/ViewLogin';
 import { ViewRegister } from '../components/ViewRegister';
+import { CreatePost } from '../components/CreatePost';
 
 
 const App = ()=> {
   const [posts, setPosts] = useState([]);  // variable 'posts' has API posts from fetch.js
   const [token, setToken] = useState('');
   
-  
+  console.log(posts);
     
   useEffect(()=> {
   fetchPost(setPosts);
@@ -19,6 +20,7 @@ const App = ()=> {
 
 const logout = () => {
   localStorage.clear();
+  console.log('Logout Successful')
 }
 
   return (
@@ -29,11 +31,13 @@ const logout = () => {
         <Link to='/posts'>Posts ({posts.length})</Link>
         <Link to='/login'>Login </Link>
         <Link to='/register'>Register</Link>
+        <Link to='/createpost'>New Post </Link>
       </nav>
       <Routes>
         <Route path='/posts' element= {<ViewPost posts = {posts}/>}/>
         <Route path='/login' element={ <ViewLogin setToken = {setToken}/>}/> 
         <Route path='/register' element={ <ViewRegister setToken = {setToken}/>}/> 
+        <Route path='/createpost' element={ <CreatePost />}/>  
       </Routes> 
     </div>
 
