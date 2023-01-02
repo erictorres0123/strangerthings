@@ -22,7 +22,9 @@ export const fetchLogin = async (username, password) => { fetch(`https://strange
   }
   const token = result.data.token;
   window.localStorage.setItem('token', token);
+  console.log('Login Successful')
   return token;
+  
 })
 .catch((err) => console.log(err));
 };

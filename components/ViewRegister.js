@@ -1,32 +1,31 @@
 import React, {useState} from "react";
-import { fetchLogin } from "../api/fetchLogin";
+import { fetchRegister } from "../api/fetchRegister";
 
 
 
-export const ViewLogin = ({setToken}) => {
+export const ViewRegister = ({setToken}) => {
 
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 
-return (
 
-<div className="login"> 
-<h1>Login</h1>
-    <form onSubmit={async(ev) => { 
+return (
+<div className="register">
+<h1>Register</h1>
+<form onSubmit={async(ev) => { 
         try {
             ev.preventDefault();
-            const token = await fetchLogin(username, password);
+            const token = await fetchRegister(username, password);
             setToken(token);
-            const redirectposts = () => {
+            const redirectlogin = () => {
                 window.location.href = '/dist/index.html#/posts';
             }
-            redirectposts();
+            redirectlogin(); //sends user to login after they have registered ^^^
         } catch (error) {
             console.error(error);
         }
     }} >
-
-<input
+    <input
           placeholder="username"
           value={username}
           onChange={(ev) => setUsername(ev.target.value)}
@@ -37,8 +36,7 @@ return (
           value={password}
           onChange={(ev) => setPassword(ev.target.value)}
         />
-    <button disabled ={!username || !password}>Log In</button>
-
-    </form>
- </div>
+    <button disabled ={!username || !password}>Login</button>
+</form>
+</div>
 )};
