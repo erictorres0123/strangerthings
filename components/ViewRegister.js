@@ -20,7 +20,7 @@ return (
             const redirectlogin = () => {
                 window.location.href = '/dist/index.html#/posts';
             }
-            redirectlogin(); //sends user to login after they have registered ^^^
+            redirectlogin(); //sends user to posts after they have registered ^^^
         } catch (error) {
             console.error(error);
         }

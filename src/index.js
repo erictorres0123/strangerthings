@@ -37,7 +37,7 @@ const logout = () => {
         <Route path='/posts' element= {<ViewPost posts = {posts}/>}/>
         <Route path='/login' element={ <ViewLogin setToken = {setToken}/>}/> 
         <Route path='/register' element={ <ViewRegister setToken = {setToken}/>}/> 
-        <Route path='/createpost' element={ <CreatePost />}/>  
+        <Route path='/createpost' element={ <CreatePost token = {token} />}/>  
       </Routes> 
     </div>
 

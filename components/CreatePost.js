@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import { fetchPost } from "../api/fetchCreate";
 
-export const CreatePost = () => {
 
-    const [newPost, setCreatePost] = useState('')
+export const CreatePost = ({token}) => {
+
+   
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
@@ -13,13 +14,11 @@ export const CreatePost = () => {
         <div>
 <h1>New Post</h1>
 <form onSubmit={async(ev) => { 
-        try {
-            ev.preventDefault();
-            const newPost = await fetchPost(title, description, price, willDeliver);
-            newPost(setCreatePost); 
-         } catch (error) {
-            console.error(error);
-        }
+    try { ev.preventDefault();
+    fetchPost(token, title, description, price);
+    console.log(token);
+        } catch (error) {
+    }
 }}>
     <input placeholder="title" value = {title} 
      onChange={(ev) => setTitle(ev.target.value)}
@@ -33,10 +32,10 @@ export const CreatePost = () => {
      onChange={(ev) => setPrice(ev.target.value)}
     ></input>
 
-    <label> Will Deliver?</label>
+    {/* <label> Will Deliver?</label>
     <input type= 'checkbox' id="willDeliver" name="willDeliver" value={willDeliver}
      onChange={(ev) => setWillDeliver(ev.target.value)}
-    ></input>
+    ></input> */}
     
 
 <button disabled ={!title || !description || !price } >Create Post</button>
